@@ -578,5 +578,6 @@
     "categoryVan": "Ван",
     "categoryScooter": "Скутер",
     "maintenanceStart": "Старт",
-    "maintenancePeriod": "Период"
+    "maintenancePeriod": "Период",
+    "reportPrior": "Prior"
 }
