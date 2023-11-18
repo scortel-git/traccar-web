@@ -158,6 +158,10 @@ const Navigation = () => {
           <Route path="scheduled" element={<ScheduledPage />} />
           <Route path="statistics" element={<StatisticsPage />} />
         </Route>
+        <Route path="documents">
+          <Route path="prior-notification" element={<RouteReportPage />} />
+          <Route path="prior-certificate" element={<RouteReportPage />} />
+        </Route>
       </Route>
     </Routes>
   );
