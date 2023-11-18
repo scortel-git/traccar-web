@@ -162,6 +162,10 @@ const Navigation = () => {
           <Route path="priornotification" element={<PriorNotificationReportPage/>} />
           <Route path="catchcertificate" element={<CatchCertificateReportPage/>} />
         </Route>
+        <Route path="documents">
+          <Route path="prior-notification" element={<RouteReportPage />} />
+          <Route path="prior-certificate" element={<RouteReportPage />} />
+        </Route>
       </Route>
     </Routes>
   );
