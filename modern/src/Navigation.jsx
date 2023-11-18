@@ -54,6 +54,8 @@ import ScheduledPage from './reports/ScheduledPage';
 import DeviceConnectionsPage from './settings/DeviceConnectionsPage';
 import GroupConnectionsPage from './settings/GroupConnectionsPage';
 import UserConnectionsPage from './settings/UserConnectionsPage';
+import PriorNotificationReportPage from './reports/PriorNotificationReportPage';
+import CatchCertificateReportPage from './reports/CatchCertificateReportPage';
 
 const Navigation = () => {
   const navigate = useNavigate();
@@ -157,6 +159,8 @@ const Navigation = () => {
           <Route path="trip" element={<TripReportPage />} />
           <Route path="scheduled" element={<ScheduledPage />} />
           <Route path="statistics" element={<StatisticsPage />} />
+          <Route path="priornotification" element={<PriorNotificationReportPage/>} />
+          <Route path="catchcertificate" element={<CatchCertificateReportPage/>} />
         </Route>
       </Route>
     </Routes>

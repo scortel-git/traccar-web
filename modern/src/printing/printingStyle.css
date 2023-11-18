@@ -1,0 +1,35 @@
+@page {
+    size: A4 portrait;
+    margin: 0.5in 0;
+  }
+
+@media print {
+    body {
+      margin: 0;
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      font: 15px Ariel, sans-serif;
+    }
+    thead {
+      display: table-row-group
+    }
+    th, td {
+      border: 3px solid black;
+      padding: 4px;
+    }
+    td {
+      vertical-align: top;
+      text-align: left;
+    }
+    .no_border_top {
+      border-top: none;
+    }
+    .no_border_bottom {
+      border-bottom: none;
+    }
+    .no_border {
+      border: none;
+    }
+  }
