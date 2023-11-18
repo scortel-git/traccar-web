@@ -49,14 +49,14 @@ const GroupConnectionsPage = () => {
             </Typography>
           </AccordionSummary>
           <AccordionDetails className={classes.details}>
-            <LinkField
+            {/* <LinkField
               endpointAll="/api/geofences"
               endpointLinked={`/api/geofences?groupId=${id}`}
               baseId={id}
               keyBase="groupId"
               keyLink="geofenceId"
               label={t('sharedGeofences')}
-            />
+            /> */}
             <LinkField
               endpointAll="/api/notifications"
               endpointLinked={`/api/notifications?groupId=${id}`}
@@ -96,7 +96,7 @@ const GroupConnectionsPage = () => {
               titleGetter={(it) => it.description}
               label={t('sharedSavedCommands')}
             />
-            {!features.disableMaintenance && (
+            {/* {!features.disableMaintenance && (
               <LinkField
                 endpointAll="/api/maintenance"
                 endpointLinked={`/api/maintenance?groupId=${id}`}
@@ -105,7 +105,7 @@ const GroupConnectionsPage = () => {
                 keyLink="maintenanceId"
                 label={t('sharedMaintenance')}
               />
-            )}
+            )} */}
           </AccordionDetails>
         </Accordion>
       </Container>

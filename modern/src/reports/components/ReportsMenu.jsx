@@ -12,9 +12,11 @@ import TrendingUpIcon from '@mui/icons-material/TrendingUp';
 import BarChartIcon from '@mui/icons-material/BarChart';
 import RouteIcon from '@mui/icons-material/Route';
 import EventRepeatIcon from '@mui/icons-material/EventRepeat';
+import DocumentScannerIcon from '@mui/icons-material/DocumentScanner';
 import { Link, useLocation } from 'react-router-dom';
 import { useTranslation } from '../../common/components/LocalizationProvider';
 import { useAdministrator, useRestriction } from '../../common/util/permissions';
+import BackupTableIcon from '@mui/icons-material/BackupTable';
 
 const MenuItem = ({
   title, link, icon, selected,
@@ -35,6 +37,19 @@ const ReportsMenu = () => {
   return (
     <>
       <List>
+        <MenuItem
+          title={t('reportPriorNotification')}
+          link="/reports/priornotification"
+          icon={<BackupTableIcon />}
+          selected={location.pathname === '/reports/priornotification'}
+        />
+        <MenuItem
+          title={t('reportCatchCertificate')}
+          link="/reports/catchcertificate"
+          icon={<DocumentScannerIcon />}
+          selected={location.pathname === '/reports/catchcertificate'}
+        />
+        {/* <Divider />
         <MenuItem
           title={t('reportCombined')}
           link="/reports/combined"
@@ -81,7 +96,7 @@ const ReportsMenu = () => {
           title={t('reportReplay')}
           link="/replay"
           icon={<RouteIcon />}
-        />
+        /> */}
       </List>
       {(admin || !readonly) && (
         <>

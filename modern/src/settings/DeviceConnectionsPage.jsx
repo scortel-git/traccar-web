@@ -49,14 +49,14 @@ const DeviceConnectionsPage = () => {
             </Typography>
           </AccordionSummary>
           <AccordionDetails className={classes.details}>
-            <LinkField
+            {/* <LinkField
               endpointAll="/api/geofences"
               endpointLinked={`/api/geofences?deviceId=${id}`}
               baseId={id}
               keyBase="deviceId"
               keyLink="geofenceId"
               label={t('sharedGeofences')}
-            />
+            /> */}
             <LinkField
               endpointAll="/api/notifications"
               endpointLinked={`/api/notifications?deviceId=${id}`}
@@ -96,7 +96,7 @@ const DeviceConnectionsPage = () => {
               titleGetter={(it) => it.description}
               label={t('sharedSavedCommands')}
             />
-            {!features.disableMaintenance && (
+            {/* {!features.disableMaintenance && (
               <LinkField
                 endpointAll="/api/maintenance"
                 endpointLinked={`/api/maintenance?deviceId=${id}`}
@@ -105,7 +105,7 @@ const DeviceConnectionsPage = () => {
                 keyLink="maintenanceId"
                 label={t('sharedMaintenance')}
               />
-            )}
+            )} */}
           </AccordionDetails>
         </Accordion>
       </Container>

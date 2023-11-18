@@ -20,6 +20,8 @@ import {
   useAdministrator, useManager, useRestriction,
 } from '../../common/util/permissions';
 import useFeatures from '../../common/util/useFeatures';
+import DirectionsBoatIcon from '@mui/icons-material/DirectionsBoat';
+import AssignmentIndIcon from '@mui/icons-material/AssignmentInd';
 
 const MenuItem = ({
   title, link, icon, selected,
@@ -67,15 +69,15 @@ const SettingsMenu = () => {
             <MenuItem
               title={t('deviceTitle')}
               link="/settings/devices"
-              icon={<SmartphoneIcon />}
+              icon={<DirectionsBoatIcon />}
               selected={location.pathname.startsWith('/settings/device')}
             />
-            <MenuItem
+            {/* <MenuItem
               title={t('sharedGeofences')}
               link="/geofences"
               icon={<CreateIcon />}
               selected={location.pathname.startsWith('/settings/geofence')}
-            />
+            /> */}
             {!features.disableGroups && (
               <MenuItem
                 title={t('settingsGroups')}
@@ -88,7 +90,7 @@ const SettingsMenu = () => {
               <MenuItem
                 title={t('sharedDrivers')}
                 link="/settings/drivers"
-                icon={<PersonIcon />}
+                icon={<AssignmentIndIcon />}
                 selected={location.pathname.startsWith('/settings/driver')}
               />
             )}
@@ -108,14 +110,14 @@ const SettingsMenu = () => {
                 selected={location.pathname.startsWith('/settings/attribute')}
               />
             )}
-            {!features.disableMaintenance && (
+            {/* {!features.disableMaintenance && (
               <MenuItem
                 title={t('sharedMaintenance')}
                 link="/settings/maintenances"
                 icon={<BuildIcon />}
                 selected={location.pathname.startsWith('/settings/maintenance')}
               />
-            )}
+            )} */}
             <MenuItem
               title={t('sharedSavedCommands')}
               link="/settings/commands"
