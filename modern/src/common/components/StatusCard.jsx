@@ -265,7 +265,7 @@ const StatusCard = ({ deviceId, position, onClose, disableActions, desktopPaddin
       </div>
       {position && (
         <Menu anchorEl={anchorEl} open={Boolean(anchorEl)} onClose={() => setAnchorEl(null)}>
-          <MenuItem onClick={() => navigate(`/position/${position.id}`)}><Typography color="secondary">{t('sharedShowDetails')}</Typography></MenuItem>
+          <MenuItem onClick={() => navigate(position.uniqueNumber ? `/position/${position.positionId}` : `/position/${position.id}`)}><Typography color="secondary">{t('sharedShowDetails')}</Typography></MenuItem>
           <MenuItem onClick={handleGeofence}>{t('sharedCreateGeofence')}</MenuItem>
           <MenuItem component="a" target="_blank" href={`https://www.google.com/maps/search/?api=1&query=${position.latitude}%2C${position.longitude}`}>{t('linkGoogleMaps')}</MenuItem>
           <MenuItem component="a" target="_blank" href={`http://maps.apple.com/?ll=${position.latitude},${position.longitude}`}>{t('linkAppleMaps')}</MenuItem>

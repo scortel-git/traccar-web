@@ -14,6 +14,7 @@ import MapPositions from '../map/MapPositions';
 import MapGeofence from '../map/MapGeofence';
 import StatusCard from '../common/components/StatusCard';
 import { formatNotificationTitle } from '../common/util/formatter';
+import { stringify } from 'wellknown';
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -64,7 +65,10 @@ const EventPage = () => {
 
   useEffectAsync(async () => {
     if (event && event.positionId) {
-      const response = await fetch(`/api/positions?id=${event.positionId}`);
+      console.log(JSON.stringify(event))
+      let endpoint = `positions`;
+      event.type == `prior` ? endpoint = `prior-notification?id=${event.attributes.priorId}` : `positions?id=${event.positionId}`
+      const response = await fetch(`/api/${endpoint}`);
       if (response.ok) {
         const positions = await response.json();
         if (positions.length > 0) {
