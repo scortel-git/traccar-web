@@ -4,7 +4,8 @@ import { Button, Container, CircularProgress, Backdrop } from '@mui/material';
 import { PriorNotificationComponentToPrint } from "./components/PriorNotificationComponentToPrint";
 import { CatchCertificateComponentToPrint } from "./components/CatchCertificateComponentToPrint";
 
-export const PrintingTriggerComponent = ({document, data}) => {
+export const PrintingTriggerComponent = ({document, device, driver, data}) => {
+  console.log()
   const componentRef = React.useRef(null);
   const onBeforeGetContentResolve = React.useRef(null);
 
@@ -43,7 +44,7 @@ export const PrintingTriggerComponent = ({document, data}) => {
 	const componentToPrint = () => {
     switch (document) {
       case 'prior':
-        return <PriorNotificationComponentToPrint ref={componentRef} data={data} />
+        return <PriorNotificationComponentToPrint ref={componentRef} device={device} data={data} driver={driver}/>
       case 'cert':
         return <CatchCertificateComponentToPrint ref={componentRef} data={data} />
       default:
@@ -59,9 +60,9 @@ export const PrintingTriggerComponent = ({document, data}) => {
 		const dateString = `${date}_${month}_${year}`;
 		switch (document) {
 			case 'prior':
-        return `prior_notification_${dateString}`
+        return `[PN]-${data.uniqueNumber}-${dateString}`
       case 'cert':
-        return `catch_certificate_${dateString}`
+        return `[CN]-${data.uniqueNumber}-${dateString}`
       default:
         return `${dateString}`
 		}

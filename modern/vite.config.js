@@ -21,6 +21,7 @@ export default defineConfig(() => ({
     VitePWA({
       workbox: {
         navigateFallbackDenylist: [/^\/api/],
+        maximumFileSizeToCacheInBytes: 3000000,
       },
       manifest: {
         short_name: '${title}',

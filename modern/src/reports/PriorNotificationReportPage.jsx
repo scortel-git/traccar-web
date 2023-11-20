@@ -33,9 +33,11 @@ const PriorNotificationReportPage = () => {
   const positionAttributes = usePositionAttributes(t);
 
   const devices = useSelector((state) => state.devices.items);
+  const drivers = useSelector((state) => state.drivers.items);
+
 
   const [available, setAvailable] = useState([]);
-  const [columns, setColumns] = useState(['fixTime', 'latitude', 'longitude', 'speed', 'address']);
+  const [columns, setColumns] = useState(['protocol', 'tripNumber', 'uniqueNumber', 'latitude', 'longitude', 'speed']);
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(false);
   const [selectedItem, setSelectedItem] = useState(null);
@@ -70,7 +72,7 @@ const PriorNotificationReportPage = () => {
     } else {
       setLoading(true);
       try {
-        const response = await fetch(`/api/reports/route?${query.toString()}`, {
+        const response = await fetch(`/api/prior-notification?${query.toString()}`, {
           headers: { Accept: 'application/json' },
         });
         if (response.ok) {
@@ -166,7 +168,7 @@ const PriorNotificationReportPage = () => {
                     )}
                   </TableCell>
                   <TableCell className={classes.columnAction}>
-                    <PrintingTriggerComponent document={"prior"} data={{cfr: "CFR123456789", extMark: "EM12345", species: "TUR", quantity: "6"}}/>
+                    <PrintingTriggerComponent document={"prior"} device={devices[item.deviceId]} driver={drivers[item.driverId]} data={item}/>
                   </TableCell>
                   <TableCell>{devices[item.deviceId].name}</TableCell>
                   {columns.map((key) => (

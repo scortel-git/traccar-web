@@ -1,11 +1,12 @@
 import { Container } from "@mui/material";
 import * as React from "react";
 import '../printingStyle.css';
+import dayjs from 'dayjs';
 
 export const PriorNotificationComponentToPrint = React.forwardRef((props, ref) => {
 
-    let cfr = props.data.cfr
-    let extMark = props.data.extMark
+    let cfr = props.device.cfr
+    let extMark = props.device.extMark
     let species = props.data.species
     let quantity = props.data.quantity
 
@@ -24,21 +25,21 @@ export const PriorNotificationComponentToPrint = React.forwardRef((props, ref) =
                 </tr>
                 <tr>
                     <td colSpan="3">Име на кораба:</td>
-                    <td colSpan="3">x</td>
+                    <td colSpan="3">{props.device.name}</td>
                     <td colSpan="3">Име на капитана или упълномощеното лице:</td>
-                    <td colSpan="3">x</td>
+                    <td colSpan="3">{props.driver.name}</td>
                 </tr>
                 <tr>
                     <td colSpan="3">Външна маркировка:</td>
-                    <td colSpan="3">x</td>
+                    <td colSpan="3">{props.device.attributes.ext}</td>
                     <td colSpan="3">Телефон:</td>
-                    <td colSpan="3">x</td>
+                    <td colSpan="3">{props.driver.attributes.captainPhone}</td>
                 </tr>
                 <tr>
                     <td colSpan="3">CFR код:</td>
-                    <td colSpan="3">x</td>
+                    <td colSpan="3">{props.device.attributes.cfr}</td>
                     <td colSpan="3">Електронна поща:</td>
-                    <td colSpan="3">x</td>
+                    <td colSpan="3">{props.driver.attributes.captainEmail}</td>
                 </tr>
                 <tr>
                     <td colSpan="12" className="no_border"></td>
@@ -51,19 +52,19 @@ export const PriorNotificationComponentToPrint = React.forwardRef((props, ref) =
                     <td colSpan="3">Дата:</td>
                     <td colSpan="3">x</td>
                     <td colSpan="3">Дата:</td>
-                    <td colSpan="3">x</td>
+                    <td colSpan="3">{dayjs(props.data.estimatedArriveTime).format('YYYY-MM-DD')}</td>
                 </tr>
                 <tr>
                     <td colSpan="3">Пристанище на отпътуването:</td>
                     <td colSpan="3">x</td>
                     <td colSpan="3">Пристанище на разтоварване:</td>
-                    <td colSpan="3">x</td>
+                    <td colSpan="3">{props.data.landingPortId}</td>
                 </tr>
                 <tr>
                     <td colSpan="3">Координати на залагане на мрежите:</td>
                     <td colSpan="3">x</td>
                     <td colSpan="3">Очакван час на пристигане:</td>
-                    <td colSpan="3">x</td>
+                    <td colSpan="3">{dayjs(props.data.estimatedArriveTime).format('HH:mm:ss')}</td>
                 </tr>
                 <tr>
                     <td colSpan="12" className="no_border"></td>
@@ -123,7 +124,7 @@ export const PriorNotificationComponentToPrint = React.forwardRef((props, ref) =
                     <td colSpan="12" className="no_border">Име на капитана / упълномощеното лице:</td>
                 </tr>
                 <tr>
-                    <td colSpan="12" className="no_border">x</td>
+                    <td colSpan="12" className="no_border">{props.driver.name}</td>
                 </tr>
                 <tr>
                     <td className="no_border">Подпис:</td>
