@@ -14,6 +14,7 @@ export default defineConfig(() => ({
   },
   build: {
     outDir: 'build',
+    chunkSizeWarningLimit: 4600,
   },
   plugins: [
     svgr(),
